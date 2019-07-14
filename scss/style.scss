@@ -1,0 +1,499 @@
+/*!
+Theme Name: Cropsaver
+Theme URI: http://underscores.me/
+Author: Pavlo Barsov
+Author URI: https://www.facebook.com/pavlo.barsov
+Description: Stuff for King Oleg
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: addition
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you"ve learned with others.
+
+addition is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css*/
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../cropsaver/fonts/poppins/Poppins-Regular.ttf") format("truetype") ;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../cropsaver/fonts/poppins/Poppins-Bold.ttf") format("truetype") ;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../cropsaver/fonts/poppins/Poppins-SemiBold.ttf") format("truetype") ;
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../cropsaver/fonts/poppins/Poppins-Medium.ttf") format("truetype") ;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Poppins";
+  src: url("../cropsaver/fonts/poppins/Poppins-Thin.ttf") format("truetype") ;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../cropsaver/fonts/open-sans/OpenSans-Regular.ttf") format("truetype") ;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../cropsaver/fonts/open-sans/OpenSans-Bold.ttf") format("truetype") ;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../cropsaver/fonts/open-sans/OpenSans-SemiBold.ttf") format("truetype") ;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../cropsaver/fonts/open-sans/OpenSans-Light.ttf") format("truetype") ;
+  font-weight: 300;
+}
+
+#page {
+  .title {
+    font-family: "Poppins", sans-serif;
+    font-size: 40px;
+    font-weight: 600;
+    color: #000;
+    line-height: 1.2;
+  }
+
+  #main {
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    .site-header {
+      display: flex;
+      justify-content: space-between;
+      .menu-toggle {
+        display: none;
+      }
+
+      .site-branding {
+        margin-top: 30px;
+      }
+
+      #primary-menu {
+        display: inline-flex;
+        li {
+          margin-top: 50px;
+          &:not(:last-child) {
+            margin-right: 20px;
+          }
+
+          a {
+            display: block;
+            font-family: "Poppins", sans-serif;
+            font-size: 16px;
+            color: #000;
+            text-decoration: none;
+            &:hover {
+              text-decoration: none;
+              text-shadow: -1px -1px 1px rgba(0,0,0,0.8);            }
+          }
+        }
+      }
+    }
+
+    .hero {
+      margin-top: 130px;
+      .title {
+        margin-bottom: 35px;
+      }
+
+      .description {
+        font-family: "Poppins", sans-serif;
+        font-size: 20px;
+        line-height: 1.2;
+        color: #000;
+        padding-bottom: 50px;
+        border-bottom: 2px solid #00ab4a;
+        margin-bottom: 40px;
+      }
+
+      .content {
+        font-family: "Open Sans", sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        color: #000;
+        line-height: 1.4;
+        margin-bottom: 40px;
+      }
+
+      .video-link {
+        padding: 15px;
+        background: #00ab4a;
+        font-size: 18px;
+        color: #fff;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        line-height: 1;
+        i {
+          margin-right: 10px;
+        }
+      }
+      #video {
+        display: none;
+
+      }
+    }
+  }
+
+  #about {
+    min-height: 100vh;
+    position: relative;
+    .bg {
+      height: 100%;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 50%;
+    }
+
+    .about-content {
+      padding: 0 65px;
+      .title {
+        padding: 40px 0;
+        border-bottom: 2px solid #00ab4a;
+      }
+
+      .description {
+        font-family: "Open Sans", sans-serif;
+        font-size: 16px;
+        line-height: 1.4;
+        color: #000;
+        margin-bottom: 60px;
+      }
+
+      .image {
+        width: 100%;
+        display: block;
+        height: auto;
+        margin-bottom: 60px;
+      }
+    }
+  }
+  
+  #services {
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 50px;
+    background: #eeeeee;
+
+    .bg {
+      width: 100%;
+      height: 50%;
+      position: absolute;
+      bottom: 50%;
+      background: #00ab4a;
+    }
+
+    .title {
+      color: #fff;
+      text-align: center;
+      margin: 55px 0 0;
+      padding-bottom: 40px;
+      position: relative;
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #fff;
+      }
+    }
+
+    .description {
+      font-family: "Poppins", sans-serif;
+      font-size: 20px;
+      line-height: 1.2;
+      color: #fff;
+      padding: 30px 0 45px;
+      width: 70%;
+      margin: auto;
+      text-align: center;
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      &:after, &:before {
+        display: none;
+      }
+
+      .border {
+        border: 20px solid #fff;
+        background: #fff;
+        height: 100%;
+        .image-wrapper {
+          padding-top: 19.5vh;
+
+        }
+
+        .service-tite {
+          padding: 25px 0 20px;
+          text-align: center;
+          border-bottom: 2px solid #00ab4a;
+          font-size: 20px;
+          font-family: 'Poppins', sans-serif;
+          line-height: 1.2;
+          font-weight: 600;
+          min-height: 95px;
+          margin-bottom: 25px;
+          color: #000;
+        }
+
+        .service-description {
+          font-size: 16px;
+          font-family: 'Open Sans', sans-serif;
+          line-height: 1.4;
+          color: #000;
+        }
+      }
+    }
+  }
+
+  #how {
+    min-height: 100vh;
+    padding-bottom: 10px;
+    .title {
+      text-align: center;
+      padding-bottom: 50px;
+      position: relative;
+      margin: 90px 0 20px;
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #00ab4a;
+      }
+    }
+
+    .instructions {
+      display: flex;
+      flex-wrap: wrap;
+      &:after, &:before {
+        display: none;
+      }
+      .border {
+        border: 20px solid #fff;
+        height: 100%;
+      }
+
+      .image-wrapper {
+        padding-top: 19.5vh;
+      }
+
+      .how-tite {
+        min-height: 115px;
+        color: #00ab4a;
+        font-size: 20px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 30px;
+        position: relative;
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: 15px;
+          right: 15px;
+          height: 1px;
+          background: #cbcbcb;
+        }
+      }
+
+      .how-description {
+        font-size: 16px;
+        font-family: "Open Sans", sans-serif;
+        line-height: 1.4;
+        color: #000;
+      }
+    }
+  }
+
+  #team {
+    min-height: 100vh;
+    background: #eeeeee;
+    padding-bottom: 50px;
+    .title {
+      text-align: center;
+      padding-bottom: 50px;
+      position: relative;
+      margin: 40px 0 50px;
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #00ab4a;
+      }
+    }
+
+    .team {
+      padding: 0 15px;
+      .border {
+        padding: 15px;
+        .limiter {
+          width: 69%;
+          margin: 0 auto 30px;
+          .image-wrapper {
+            padding-top: 100%;
+          }
+        }
+
+        .team-tite {
+          font-size: 20px;
+          font-family: "Poppins", sans-serif;
+          font-weight: 600;
+          color: #00ab4a;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          min-height: 60px;
+        }
+
+        .team-description {
+          font-size: 16px;
+          font-family: "Open Sans", sans-serif;
+          line-height: 1.4;
+          color: #000;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  #awards {
+    padding: 35px 0;
+    background: #00ab4a;
+    .title {
+      color: #fff;
+      text-align: center;
+      padding-bottom: 50px;
+      margin: 0 auto 30px;
+      position: relative;
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: #fff;
+      }
+    }
+
+    .awards {
+      display: flex;
+      align-items: center;
+      &:after, &:before {
+        display: none;
+      }
+
+      .awards-item {
+        padding: 30px 50px;
+        &:nth-of-type(odd) {
+          border-right: 1px solid #fff;
+        }
+
+        .awards-tite {
+          font-size: 12px;
+          font-family: "Open Sans", sans-serif;
+          color: #fff;
+        }
+      }
+
+      .flex {
+        display: flex;
+      }
+
+      .part {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        img {
+          max-width: 100%;
+          height: auto;
+        }
+        
+        &:last-of-type {
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  #contacts {
+    min-height: 100vh;
+  }
+
+  .link {
+    background: #00ab4a;
+    padding: 15px;
+    line-height: 1;
+    font-family: "Open Sans", sans-serif;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+#html5-lightbox-box, .html5-elem-wrap {
+  display: inline-block!important;
+  background: red;
+  width: auto!important;
+}
+
+#html5-watermark {
+  display: none!important;
+}
