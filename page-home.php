@@ -11,7 +11,8 @@
 						</div>
 
 						<nav id="site-navigation" class="main-navigation">
-							<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'addition' ); ?></button>
+							<div class="menu-toggle"><?php esc_html_e( 'Primary Menu', 'addition' ); ?></div>
+							<div class="toggle"><span class="center"></span></div>
 							<?php
 							wp_nav_menu( array(
 								'theme_location' => 'menu-1',
@@ -22,14 +23,14 @@
 					</header>
 
 					<div class="hero row">
-						<div class="col-lg-5">
+						<div class="col-xs-12 col-sm-8 col-md-5">
 							<h1 class="title"><?php bloginfo( 'name' ); ?></h1>
 							<p class="description"><?php echo get_bloginfo( 'description', 'display' ); ?></p>
 							<p class="content"><?php $content = apply_filters('the_content', get_post(17)->post_content);
 																		echo wp_strip_all_tags( $content, $remove_breaks = false );
 																	?>
 							</p>
-							<a href="#video" class="video-link html5lightbox" title="<?php the_field( "hero_video_title" ); ?>"><i class="fas fa-chevron-circle-right fa-lg"></i> Watch video</a>
+							<a href="#video" class="video-link html5lightbox" title="<?php the_field( "hero_video_title" ); ?>"><i class="fas fa-chevron-circle-right fa-lg"></i><?php the_field('hero_button'); ?></a>
 
 							<div id="video">
 								<?php the_field( "video" ); ?>
@@ -47,10 +48,12 @@
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-6 col-md-offset-6 about-content">
+				<div class="col-xs-12 col-md-6 col-xs-offset-0 col-md-offset-6 about-content">
 					<h1 class="title"><?php the_field( "about_title" ); ?></h1>
 					<p class="description"><?php the_field( "about_description" ); ?></p>
-					<img src="<?php the_field( "about_image" ); ?>" alt="copter image" class="image">
+					<div class="image-wrapper">
+						<img src="<?php the_field( "about_image" ); ?>" alt="copter image" class="image">
+					</div>
 				</div>
 			</div>
 		</div>
@@ -74,7 +77,7 @@
 								while($post_query->have_posts() ) {
 									$post_query->the_post();
 						?>
-								<div class="col-md-4 services-item">
+								<div class="col-xs-6 col-md-4 services-item">
 									<div class="border">
 										<div class="image-wrapper" style="background: url(<?php the_post_thumbnail_url( ); ?>) center/cover no-repeat">
 
@@ -93,7 +96,7 @@
 				</div>
 			</div>
 		</div>
-		<a href="#contact" class="link"><?php esc_attr_e( 'Get in touch', 'cropsaver' ); ?></a>
+		<a href="#contacts" class="link"><?php the_field( 'services_button' ); ?></a>
 	</section>
 
 	<section id="how">
@@ -111,7 +114,7 @@
 							while($post_query->have_posts() ) {
 								$post_query->the_post();
 								?>
-								<div class="col-md-4 services-item">
+								<div class="col-xs-6 col-md-4 how-item">
 									<div class="border">
 										<div class="image-wrapper" style="background: url(<?php the_post_thumbnail_url( ); ?>) center/auto no-repeat">
 
@@ -148,7 +151,7 @@
 							while($post_query->have_posts() ) {
 								$post_query->the_post();
 								?>
-								<div class="col-md-3 team-item">
+								<div class="col-xs-4 col-md-3 team-item">
 									<div class="border">
 										<div class="limiter">
 											<div class="image-wrapper" style="background: url(<?php the_post_thumbnail_url( ); ?>) center/cover no-repeat">
@@ -187,12 +190,12 @@
 							while($post_query->have_posts() ) {
 								$post_query->the_post();
 								?>
-								<div class="col-md-6 awards-item">
+								<div class="col-xs-12 col-md-6 awards-item">
 									<div class="row flex">
-										<div class="col-md-6 part">
+										<div class="col-xs-12 col-md-6 part">
 											<?php the_post_thumbnail(); ?>
 										</div>
-										<div class="col-md-6 part">
+										<div class="col-xs-12 col-md-6 part">
 											<h2 class="awards-tite"><?php the_title(); ?></h2>
 										</div>
 									</div>
@@ -214,35 +217,11 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 contact-content">
-
+					<h1 class="title"><?php the_field( "contact_title" ); ?></h1>
+					<?php echo do_shortcode( '[contact-form-7 id="133" title="Contact form 1"]' ); ?>
 				</div>
 			</div>
 		</div>
 	</section>
-
-
-
-	<div id="content" class="site-content">
-
-	<div id="primary" class="content-area aaaaaaa">
-		<main id="main" class="site-main">
-		<?php
-		while ( have_posts() ) :
-			the_post();
-
-			get_template_part( 'template-parts/content', 'page' );
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
 <?php
-get_sidebar();
 get_footer();

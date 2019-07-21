@@ -251,6 +251,8 @@ function create_awards() {
 // Hooking up our function to theme setup
 add_action( 'init', 'create_awards' );
 
+remove_action('load-update-core.php','wp_update_plugins');
+add_filter('pre_site_transient_update_plugins','__return_null');
 
 add_filter('use_block_editor_for_post', '__return_false', 10);
 

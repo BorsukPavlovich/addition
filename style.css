@@ -63,12 +63,82 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css*/
   src: url("../cropsaver/fonts/open-sans/OpenSans-Light.ttf") format("truetype");
   font-weight: 300; }
 
+html, body {
+  height: 100%;
+  overflow-x: hidden; }
+
+.open #page .toggle:before, .open #page .toggle:after, .open #page .toggle .center {
+  background: #000; }
+
+.open #page .toggle:before {
+  opacity: 0; }
+
+.open #page .toggle:after {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg); }
+
+.open #page .toggle .center {
+  top: 63%;
+  -webkit-transform: rotate(45deg) translate(-16%, -50%);
+      -ms-transform: rotate(45deg) translate(-16%, -50%);
+          transform: rotate(45deg) translate(-16%, -50%); }
+
+.open #page #main .site-header #primary-menu {
+  left: 50%; }
+  @media (max-width: 480px) {
+    .open #page #main .site-header #primary-menu {
+      left: 20%; } }
+
 #page .title {
   font-family: "Poppins", sans-serif;
   font-size: 40px;
   font-weight: 600;
   color: #000;
   line-height: 1.2; }
+  @media (max-width: 480px) {
+    #page .title {
+      font-size: 32px; } }
+
+#page .toggle {
+  display: none;
+  width: 32px;
+  height: 24px;
+  position: fixed;
+  right: 50px;
+  top: 30px;
+  z-index: 10; }
+  @media (max-width: 768px) {
+    #page .toggle {
+      display: block; } }
+  @media (max-width: 480px) {
+    #page .toggle {
+      right: 30px; } }
+  #page .toggle:before, #page .toggle:after, #page .toggle .center {
+    display: block;
+    content: '';
+    position: absolute;
+    height: 2px;
+    background: #fff;
+    width: 100%;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s; }
+  #page .toggle:before {
+    top: 0; }
+  #page .toggle:after {
+    bottom: 0;
+    -webkit-transform-origin: 0 0;
+        -ms-transform-origin: 0 0;
+            transform-origin: 0 0; }
+  #page .toggle .center {
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+    -webkit-transform-origin: center;
+        -ms-transform-origin: center;
+            transform-origin: center; }
 
 #page #main {
   min-height: 100vh;
@@ -86,14 +156,50 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css*/
       display: none; }
     #page #main .site-header .site-branding {
       margin-top: 30px; }
+      @media (max-width: 992px) {
+        #page #main .site-header .site-branding {
+          max-width: 150px; }
+          #page #main .site-header .site-branding img {
+            max-width: 100%;
+            height: auto; } }
     #page #main .site-header #primary-menu {
       display: -webkit-inline-box;
       display: -ms-inline-flexbox;
-      display: inline-flex; }
+      display: inline-flex;
+      z-index: 9; }
+      @media (max-width: 768px) {
+        #page #main .site-header #primary-menu {
+          position: fixed;
+          left: 100%;
+          width: 50%;
+          padding: 55px 20px;
+          background: #fff;
+          min-height: 100vh;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+                  flex-direction: column;
+          -webkit-transition: 1s;
+          -o-transition: 1s;
+          transition: 1s; }
+          #page #main .site-header #primary-menu > li {
+            margin: 0;
+            padding: 10px 15px; } }
+  @media (max-width: 768px) and (max-width: 480px) {
+    #page #main .site-header #primary-menu {
+      width: 80%; } }
       #page #main .site-header #primary-menu li {
         margin-top: 50px; }
+        @media (max-width: 992px) {
+          #page #main .site-header #primary-menu li {
+            margin-top: 38px; } }
+        @media (max-width: 768px) {
+          #page #main .site-header #primary-menu li {
+            margin: 0; } }
         #page #main .site-header #primary-menu li:not(:last-child) {
           margin-right: 20px; }
+        #page #main .site-header #primary-menu li li {
+          margin: 0; }
         #page #main .site-header #primary-menu li a {
           display: block;
           font-family: "Poppins", sans-serif;
@@ -103,8 +209,33 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css*/
           #page #main .site-header #primary-menu li a:hover {
             text-decoration: none;
             text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.8); }
+      #page #main .site-header #primary-menu .qtranxs-lang-menu > a {
+        display: none;
+        margin: 0; }
+        #page #main .site-header #primary-menu .qtranxs-lang-menu > a[title^="EN"] + ul .qtranxs-lang-menu-item-en {
+          display: none; }
+        #page #main .site-header #primary-menu .qtranxs-lang-menu > a[title^="UA"] + ul .qtranxs-lang-menu-item-ua {
+          display: none; }
+      #page #main .site-header #primary-menu .qtranxs-lang-menu .qtranxs-lang-menu-item-ua img,
+      #page #main .site-header #primary-menu .qtranxs-lang-menu .qtranxs-lang-menu-item-en img {
+        display: none; }
+      #page #main .site-header #primary-menu .qtranxs-lang-menu .qtranxs-lang-menu-item-ua a,
+      #page #main .site-header #primary-menu .qtranxs-lang-menu .qtranxs-lang-menu-item-en a {
+        color: #00ab4a;
+        font-weight: 600; }
+        #page #main .site-header #primary-menu .qtranxs-lang-menu .qtranxs-lang-menu-item-ua a:hover,
+        #page #main .site-header #primary-menu .qtranxs-lang-menu .qtranxs-lang-menu-item-en a:hover {
+          text-decoration: none;
+          text-shadow: -1px -1px 1px rgba(0, 171, 74, 0.8); }
   #page #main .hero {
-    margin-top: 130px; }
+    margin-top: 130px;
+    padding-bottom: 80px; }
+    @media (max-width: 768px) {
+      #page #main .hero {
+        margin-top: 80px; } }
+    @media (max-width: 480px) {
+      #page #main .hero {
+        margin-top: 50px; } }
     #page #main .hero .title {
       margin-bottom: 35px; }
     #page #main .hero .description {
@@ -142,7 +273,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css*/
 
 #page #about {
   min-height: 100vh;
-  position: relative; }
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 80px; }
   #page #about .bg {
     height: 100%;
     position: absolute;
@@ -150,17 +283,70 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css*/
     bottom: 0;
     left: 0;
     width: 50%; }
+    @media (max-width: 992px) {
+      #page #about .bg {
+        width: 100%; }
+        #page #about .bg:after {
+          display: block;
+          content: '';
+          position: absolute;
+          -webkit-transform: rotate(-45deg) translate(-2%, 0);
+              -ms-transform: rotate(-45deg) translate(-2%, 0);
+                  transform: rotate(-45deg) translate(-2%, 0);
+          -webkit-transform-origin: 0 0;
+              -ms-transform-origin: 0 0;
+                  transform-origin: 0 0;
+          background: #fff;
+          width: 100%;
+          height: 200%; } }
+    @media (max-width: 768px) {
+      #page #about .bg {
+        display: block;
+        background: #fff !important; }
+        #page #about .bg:after {
+          display: none; } }
   #page #about .about-content {
     padding: 0 65px; }
+    @media (max-width: 992px) {
+      #page #about .about-content {
+        padding: 0 15px;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+        -webkit-box-align: start;
+            -ms-flex-align: start;
+                align-items: flex-start; } }
+    @media (max-width: 768px) {
+      #page #about .about-content {
+        display: block; } }
     #page #about .about-content .title {
       padding: 40px 0;
-      border-bottom: 2px solid #00ab4a; }
+      margin: 0 0 40px;
+      border-bottom: 2px solid #00ab4a;
+      width: 100%; }
+      @media (max-width: 480px) {
+        #page #about .about-content .title {
+          font-size: 32px; } }
     #page #about .about-content .description {
       font-family: "Open Sans", sans-serif;
       font-size: 16px;
       line-height: 1.4;
       color: #000;
       margin-bottom: 60px; }
+      @media (max-width: 992px) {
+        #page #about .about-content .description {
+          width: 50%; } }
+      @media (max-width: 768px) {
+        #page #about .about-content .description {
+          width: 100%; } }
+    @media (max-width: 992px) {
+      #page #about .about-content .image-wrapper {
+        width: 50%; } }
+    @media (max-width: 768px) {
+      #page #about .about-content .image-wrapper {
+        width: 100%; } }
     #page #about .about-content .image {
       width: 100%;
       display: block;
@@ -170,7 +356,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css*/
 #page #services {
   min-height: 100vh;
   position: relative;
-  padding-bottom: 50px;
+  padding-bottom: 80px;
   background: #eeeeee; }
   #page #services .bg {
     width: 100%;
@@ -184,6 +370,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css*/
     margin: 55px 0 0;
     padding-bottom: 40px;
     position: relative; }
+    @media (max-width: 480px) {
+      #page #services .title {
+        font-size: 32px; } }
     #page #services .title:after {
       content: '';
       display: block;
@@ -210,37 +399,56 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css*/
         flex-wrap: wrap; }
     #page #services .services:after, #page #services .services:before {
       display: none; }
-    #page #services .services .border {
-      border: 20px solid #fff;
-      background: #fff;
-      height: 100%; }
-      #page #services .services .border .image-wrapper {
-        padding-top: 19.5vh; }
-      #page #services .services .border .service-tite {
-        padding: 25px 0 20px;
-        text-align: center;
-        border-bottom: 2px solid #00ab4a;
-        font-size: 20px;
-        font-family: 'Poppins', sans-serif;
-        line-height: 1.2;
-        font-weight: 600;
-        min-height: 95px;
-        margin-bottom: 25px;
-        color: #000; }
-      #page #services .services .border .service-description {
-        font-size: 16px;
-        font-family: 'Open Sans', sans-serif;
-        line-height: 1.4;
-        color: #000; }
+    #page #services .services .services-item {
+      margin-bottom: 30px; }
+      @media (max-width: 480px) {
+        #page #services .services .services-item {
+          width: 100%;
+          margin-bottom: 15px; } }
+      #page #services .services .services-item .border {
+        border: 20px solid #fff;
+        background: #fff;
+        height: 100%;
+        padding-bottom: 15px; }
+        @media (max-width: 992px) {
+          #page #services .services .services-item .border {
+            border: 15px solid #fff; } }
+        @media (max-width: 480px) {
+          #page #services .services .services-item .border {
+            border: 20px solid #fff; } }
+        #page #services .services .services-item .border .image-wrapper {
+          padding-top: 19.5vh; }
+          @media (max-width: 992px) {
+            #page #services .services .services-item .border .image-wrapper {
+              padding-top: 80%; } }
+        #page #services .services .services-item .border .service-tite {
+          padding: 25px 0 20px;
+          text-align: center;
+          border-bottom: 2px solid #00ab4a;
+          font-size: 20px;
+          font-family: 'Poppins', sans-serif;
+          line-height: 1.2;
+          font-weight: 600;
+          min-height: 95px;
+          margin-bottom: 25px;
+          color: #000; }
+        #page #services .services .services-item .border .service-description {
+          font-size: 16px;
+          font-family: 'Open Sans', sans-serif;
+          line-height: 1.4;
+          color: #000; }
 
 #page #how {
   min-height: 100vh;
-  padding-bottom: 10px; }
+  padding-bottom: 80px; }
   #page #how .title {
     text-align: center;
     padding-bottom: 50px;
     position: relative;
     margin: 90px 0 20px; }
+    @media (max-width: 480px) {
+      #page #how .title {
+        font-size: 32px; } }
     #page #how .title:after {
       content: '';
       display: block;
@@ -258,53 +466,93 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css*/
         flex-wrap: wrap; }
     #page #how .instructions:after, #page #how .instructions:before {
       display: none; }
-    #page #how .instructions .border {
-      border: 20px solid #fff;
-      height: 100%; }
-    #page #how .instructions .image-wrapper {
-      padding-top: 19.5vh; }
-    #page #how .instructions .how-tite {
-      min-height: 115px;
-      color: #00ab4a;
-      font-size: 20px;
-      font-family: "Poppins", sans-serif;
-      font-weight: 600;
-      text-align: center;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-      -webkit-box-pack: center;
-          -ms-flex-pack: center;
-              justify-content: center;
-      margin-bottom: 30px;
-      position: relative; }
-      #page #how .instructions .how-tite:after {
-        content: '';
+    #page #how .instructions .how-item {
+      margin-bottom: 15px; }
+      @media (max-width: 480px) {
+        #page #how .instructions .how-item {
+          width: 100%;
+          padding-bottom: 15px; } }
+      #page #how .instructions .how-item:not(:last-of-type):after {
         display: block;
+        width: 20px;
+        height: 20px;
+        content: '\f138';
+        font-family: "FontAwesome";
+        font-size: 24px;
+        color: #00ab4a;
         position: absolute;
-        bottom: 0;
-        left: 15px;
-        right: 15px;
-        height: 1px;
-        background: #cbcbcb; }
-    #page #how .instructions .how-description {
-      font-size: 16px;
-      font-family: "Open Sans", sans-serif;
-      line-height: 1.4;
-      color: #000; }
+        left: 100%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+                transform: translate(-50%, -50%); }
+        @media (max-width: 480px) {
+          #page #how .instructions .how-item:not(:last-of-type):after {
+            content: '\f13a';
+            left: 50%;
+            top: 100%;
+            -webkit-transform: translate(-50%, 0);
+                -ms-transform: translate(-50%, 0);
+                    transform: translate(-50%, 0); } }
+      @media (min-width: 481px) and (max-width: 992px) {
+        #page #how .instructions .how-item:nth-of-type(even):after {
+          display: none; } }
+      #page #how .instructions .how-item .border {
+        height: 100%;
+        padding-bottom: 15px; }
+        @media (max-width: 480px) {
+          #page #how .instructions .how-item .border {
+            border: 0 solid #fff; } }
+      #page #how .instructions .how-item .image-wrapper {
+        padding-top: 19.5vh; }
+        @media (max-width: 992px) {
+          #page #how .instructions .how-item .image-wrapper {
+            padding-top: 80%; } }
+      #page #how .instructions .how-item .how-tite {
+        min-height: 115px;
+        color: #00ab4a;
+        font-size: 20px;
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        text-align: center;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        margin-bottom: 30px;
+        position: relative; }
+        #page #how .instructions .how-item .how-tite:after {
+          content: '';
+          display: block;
+          position: absolute;
+          bottom: 0;
+          left: 15px;
+          right: 15px;
+          height: 1px;
+          background: #cbcbcb; }
+      #page #how .instructions .how-item .how-description {
+        font-size: 16px;
+        font-family: "Open Sans", sans-serif;
+        line-height: 1.4;
+        color: #000; }
 
 #page #team {
   min-height: 100vh;
   background: #eeeeee;
-  padding-bottom: 50px; }
+  padding-bottom: 80px; }
   #page #team .title {
     text-align: center;
     padding-bottom: 50px;
     position: relative;
     margin: 40px 0 50px; }
+    @media (max-width: 480px) {
+      #page #team .title {
+        font-size: 32px; } }
     #page #team .title:after {
       content: '';
       display: block;
@@ -315,15 +563,40 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css*/
       height: 2px;
       background: #00ab4a; }
   #page #team .team {
-    padding: 0 15px; }
-    #page #team .team .border {
+    padding: 0 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+    #page #team .team:after, #page #team .team:before {
+      display: none; }
+    @media (max-width: 480px) {
+      #page #team .team {
+        padding: 0; } }
+    @media (max-width: 480px) {
+      #page #team .team .team-item {
+        width: 50%; } }
+    @media (max-width: 400px) {
+      #page #team .team .team-item {
+        width: 100%; } }
+    #page #team .team .team-item .border {
       padding: 15px; }
-      #page #team .team .border .limiter {
+      @media (max-width: 992px) {
+        #page #team .team .team-item .border {
+          padding: 15px 0; } }
+      #page #team .team .team-item .border .limiter {
         width: 69%;
         margin: 0 auto 30px; }
-        #page #team .team .border .limiter .image-wrapper {
+        @media (max-width: 1200px) {
+          #page #team .team .team-item .border .limiter {
+            width: 100%; } }
+        @media (max-width: 480px) {
+          #page #team .team .team-item .border .limiter {
+            margin: 0 auto 15px; } }
+        #page #team .team .team-item .border .limiter .image-wrapper {
           padding-top: 100%; }
-      #page #team .team .border .team-tite {
+      #page #team .team .team-item .border .team-tite {
         font-size: 20px;
         font-family: "Poppins", sans-serif;
         font-weight: 600;
@@ -339,7 +612,7 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css*/
                 justify-content: center;
         text-align: center;
         min-height: 60px; }
-      #page #team .team .border .team-description {
+      #page #team .team .team-item .border .team-description {
         font-size: 16px;
         font-family: "Open Sans", sans-serif;
         line-height: 1.4;
@@ -355,6 +628,9 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css*/
     padding-bottom: 50px;
     margin: 0 auto 30px;
     position: relative; }
+    @media (max-width: 480px) {
+      #page #awards .title {
+        font-size: 32px; } }
     #page #awards .title:after {
       content: '';
       display: block;
@@ -371,10 +647,18 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css*/
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center; }
+    @media (max-width: 768px) {
+      #page #awards .awards {
+        -webkit-box-align: normal;
+            -ms-flex-align: normal;
+                align-items: normal; } }
     #page #awards .awards:after, #page #awards .awards:before {
       display: none; }
     #page #awards .awards .awards-item {
       padding: 30px 50px; }
+      @media (max-width: 768px) {
+        #page #awards .awards .awards-item {
+          padding: 30px 15px; } }
       #page #awards .awards .awards-item:nth-of-type(odd) {
         border-right: 1px solid #fff; }
       #page #awards .awards .awards-item .awards-tite {
@@ -385,6 +669,19 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css*/
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex; }
+      @media (max-width: 768px) {
+        #page #awards .awards .flex {
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+              -ms-flex-direction: column;
+                  flex-direction: column;
+          height: 100%;
+          -webkit-box-pack: justify;
+              -ms-flex-pack: justify;
+                  justify-content: space-between;
+          text-align: center; } }
+      #page #awards .awards .flex:after, #page #awards .awards .flex:before {
+        display: none; }
     #page #awards .awards .part {
       display: -webkit-box;
       display: -ms-flexbox;
@@ -393,6 +690,16 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css*/
           -ms-flex-align: center;
               align-items: center;
       text-align: center; }
+      @media (max-width: 768px) {
+        #page #awards .awards .part:first-of-type {
+          -webkit-box-pack: center;
+              -ms-flex-pack: center;
+                  justify-content: center;
+          margin-bottom: 15px; } }
+      @media (max-width: 480px) {
+        #page #awards .awards .part {
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap; } }
       #page #awards .awards .part img {
         max-width: 100%;
         height: auto; }
@@ -400,7 +707,135 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css*/
         text-align: left; }
 
 #page #contacts {
-  min-height: 100vh; }
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 80px 0; }
+  #page #contacts .title {
+    color: #fff;
+    text-align: center;
+    padding: 50px 0;
+    margin: 0; }
+    @media (max-width: 480px) {
+      #page #contacts .title {
+        font-size: 32px; } }
+  #page #contacts input {
+    line-height: 32px;
+    vertical-align: middle;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 0;
+    padding: 0 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px; }
+    #page #contacts input[type*=submit] {
+      line-height: 48px;
+      text-align: center;
+      background: #00ab4a;
+      margin-bottom: 0;
+      color: #fff;
+      font-size: 18px; }
+    #page #contacts input::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      color: #cdd5ed; }
+    #page #contacts input::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #cdd5ed; }
+    #page #contacts input:-ms-input-placeholder {
+      /* IE 10+ */
+      color: #cdd5ed; }
+    #page #contacts input:-moz-placeholder {
+      /* Firefox 18- */
+      color: #cdd5ed; }
+  #page #contacts textarea {
+    height: 165px;
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    border-radius: 0;
+    resize: none;
+    width: 100%;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px; }
+    #page #contacts textarea::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      color: #cdd5ed; }
+    #page #contacts textarea::-moz-placeholder {
+      /* Firefox 19+ */
+      color: #cdd5ed; }
+    #page #contacts textarea:-ms-input-placeholder {
+      /* IE 10+ */
+      color: #cdd5ed; }
+    #page #contacts textarea:-moz-placeholder {
+      /* Firefox 18- */
+      color: #cdd5ed; }
+  #page #contacts .wpcf7-form-control-wrap {
+    position: relative;
+    margin-bottom: 20px; }
+    #page #contacts .wpcf7-form-control-wrap:nth-of-type(3) {
+      margin-bottom: 0; }
+      #page #contacts .wpcf7-form-control-wrap:nth-of-type(3) .wpcf7-not-valid-tip {
+        top: 10px;
+        -webkit-transform: none;
+            -ms-transform: none;
+                transform: none;
+        right: 15px; }
+  #page #contacts .wpcf7-validation-errors {
+    color: red;
+    font-weight: 600;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px; }
+  #page #contacts .wpcf7-mail-sent-ok {
+    color: #00ab4a;
+    font-weight: 600;
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px; }
+  #page #contacts .wpcf7-not-valid-tip {
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+        -ms-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+    right: 15px;
+    z-index: 1; }
+  #page #contacts .ajax-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    z-index: 1; }
+  #page #contacts form.wpcf7-form {
+    text-align: center;
+    padding-bottom: 60px;
+    position: relative; }
+    #page #contacts form.wpcf7-form p {
+      display: -webkit-inline-box;
+      display: -ms-inline-flexbox;
+      display: inline-flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      position: relative; }
+    #page #contacts form.wpcf7-form .wpcf7-response-output {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      -webkit-transform: translate(-50%, 0);
+          -ms-transform: translate(-50%, 0);
+              transform: translate(-50%, 0);
+      margin: 0;
+      padding: 10px; }
 
 #page .link {
   background: #00ab4a;
@@ -416,12 +851,68 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css*/
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%); }
+          transform: translate(-50%, -50%);
+  z-index: 1; }
+
+.site-footer {
+  min-height: 90px;
+  padding-right: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  background: #00ab4a;
+  position: relative; }
+  @media (max-width: 768px) {
+    .site-footer {
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: reverse;
+          -ms-flex-direction: column-reverse;
+              flex-direction: column-reverse;
+      padding: 30px 0; } }
+  .site-footer p {
+    font-size: 12px;
+    font-family: "Open Sans", sans-serif;
+    color: #fff; }
+  .site-footer .footer-logo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    display: block;
+    line-height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 50px;
+    width: 50px; }
+    @media (max-width: 768px) {
+      .site-footer .footer-logo {
+        position: static;
+        margin-bottom: 15px;
+        -webkit-transform: none;
+            -ms-transform: none;
+                transform: none; } }
 
 #html5-lightbox-box, .html5-elem-wrap {
   display: inline-block !important;
   background: red;
-  width: auto !important; }
+  background: red;
+  width: auto !important;
+  max-width: 90vw; }
+
+#html5box-html5-lightbox iframe {
+  max-width: 100%; }
 
 #html5-watermark {
   display: none !important; }
