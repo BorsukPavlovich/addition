@@ -120,7 +120,23 @@ add_action( 'widgets_init', 'addition_widgets_init' );
  * Enqueue scripts and styles.
  */
 function addition_scripts() {
-	wp_enqueue_style( 'addition-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'reset', get_template_directory_uri() . '/lib/reset.css' );
+
+	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/lib/fontawesome/css/all.min.css' );
+
+	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/lib/bootstrap.min.css' );
+
+	wp_enqueue_style( 'lightbox', get_template_directory_uri() . '/lib/html5lightbox/icons/css/fontello.css' );
+
+	wp_enqueue_style( 'main-style', get_stylesheet_uri() );
+
+	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/lib/html5lightbox/jquery.js' );
+
+	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/lib/bootstrap.min.js' );
+
+	wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/lib/html5lightbox/html5lightbox.js' );
+
+	wp_enqueue_script( 'main', get_template_directory_uri() . '/js/main.js' );
 
 	wp_enqueue_script( 'addition-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
@@ -131,6 +147,116 @@ function addition_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'addition_scripts' );
+
+// Our custom post type function
+function create_team() {
+
+	register_post_type( 'team',
+		// CPT Options
+		array(
+			'labels' => array(
+				'name' => __( 'Team' ),
+				'singular_name' => __( 'Member' )
+			),
+			'menu_position' => 4,
+			'menu_icon' => 'dashicons-businessperson',
+			'public' => true,
+			'has_archive' => true,
+			'rewrite' => array('slug' => 'team'),
+			'supports' => array(
+				'title',
+				'editor',
+				'thumbnail',
+				'custom-fields'
+			)
+		)
+	);
+}
+// Hooking up our function to theme setup
+add_action( 'init', 'create_team' );
+
+function create_services() {
+
+	register_post_type( 'services',
+		// CPT Options
+		array(
+			'labels' => array(
+				'name' => __( 'Services' ),
+				'singular_name' => __( 'Service' )
+			),
+			'menu_position' => 5,
+			'menu_icon' => 'dashicons-admin-tools',
+			'public' => true,
+			'has_archive' => true,
+			'rewrite' => array('slug' => 'services'),
+			'supports' => array(
+				'title',
+				'editor',
+				'thumbnail',
+				'custom-fields'
+			)
+		)
+	);
+}
+// Hooking up our function to theme setup
+add_action( 'init', 'create_services' );
+
+function create_steps() {
+
+	register_post_type( 'steps',
+		// CPT Options
+		array(
+			'labels' => array(
+				'name' => __( 'Steps' ),
+				'singular_name' => __( 'Step' )
+			),
+			'menu_position' => 6,
+			'menu_icon' => 'dashicons-clipboard',
+			'public' => true,
+			'has_archive' => true,
+			'rewrite' => array('slug' => 'steps'),
+			'supports' => array(
+				'title',
+				'editor',
+				'thumbnail',
+				'custom-fields'
+			)
+		)
+	);
+}
+// Hooking up our function to theme setup
+add_action( 'init', 'create_steps' );
+
+function create_awards() {
+
+	register_post_type( 'awards',
+		// CPT Options
+		array(
+			'labels' => array(
+				'name' => __( 'Awards' ),
+				'singular_name' => __( 'Award' )
+			),
+			'menu_position' => 7,
+			'menu_icon' => 'dashicons-welcome-learn-more',
+			'public' => true,
+			'has_archive' => true,
+			'rewrite' => array('slug' => 'awards'),
+			'supports' => array(
+				'title',
+				'editor',
+				'thumbnail',
+				'custom-fields'
+			)
+		)
+	);
+}
+// Hooking up our function to theme setup
+add_action( 'init', 'create_awards' );
+
+remove_action('load-update-core.php','wp_update_plugins');
+add_filter('pre_site_transient_update_plugins','__return_null');
+
+add_filter('use_block_editor_for_post', '__return_false', 10);
 
 /**
  * Implement the Custom Header feature.
@@ -157,5 +283,35 @@ require get_template_directory() . '/inc/customizer.php';
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
+}
+
+//Custom Theme Settings
+add_action('admin_menu', 'add_gcf_interface');
+
+function add_gcf_interface() {
+	add_options_page('Global Custom Fields', 'Global Custom Fields', '8', 'functions', 'editglobalcustomfields');
+}
+
+function editglobalcustomfields() {
+	?>
+	<div class='wrap'>
+		<h2>Global Fields</h2>
+		<form method="post" action="options.php">
+			<?php wp_nonce_field('update-options') ?>
+
+			<p><strong>Footer logo</strong><br />
+				<input type="text" name="footer_logo" size="45" value="<?php echo get_option('footer_logo'); ?>" placeholder="<?php echo get_option('footer_logo'); ?>" /></p>
+
+			<p><strong>Copyright:</strong><br />
+				<input type="text" name="copyright" size="45" value="<?php echo get_option('copyright'); ?>" placeholder="<?php echo get_option('copyright'); ?>"/></p>
+
+			<p><input type="submit" name="Submit" value="Update Options" /></p>
+
+			<input type="hidden" name="action" value="update" />
+			<input type="hidden" name="page_options" value="footer_logo,copyright" />
+
+		</form>
+	</div>
+	<?php
 }
 
