@@ -208,7 +208,7 @@ html, body {
           text-decoration: none; }
           #page #main .site-header #primary-menu li a:hover {
             text-decoration: none;
-            text-shadow: -1px -1px 1px rgba(0, 0, 0, 0.8); }
+            text-decoration: underline; }
       #page #main .site-header #primary-menu .qtranxs-lang-menu > a {
         display: none;
         margin: 0; }
@@ -232,10 +232,17 @@ html, body {
     padding-bottom: 80px; }
     @media (max-width: 768px) {
       #page #main .hero {
-        margin-top: 80px; } }
+        margin-top: 80px;
+        padding: 0 25px; } }
     @media (max-width: 480px) {
       #page #main .hero {
         margin-top: 50px; } }
+    #page #main .hero .hero-text {
+      background: rgba(255, 255, 255, 0.6);
+      padding: 25px 50px 50px; }
+      @media (max-width: 768px) {
+        #page #main .hero .hero-text {
+          padding: 25px 25px 50px; } }
     #page #main .hero .title {
       margin-bottom: 35px; }
     #page #main .hero .description {
@@ -388,9 +395,12 @@ html, body {
     line-height: 1.2;
     color: #fff;
     padding: 30px 0 45px;
-    width: 70%;
+    width: 45%;
     margin: auto;
     text-align: center; }
+    @media (max-width: 992px) {
+      #page #services .description {
+        width: 100%; } }
   #page #services .services {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -401,21 +411,25 @@ html, body {
       display: none; }
     #page #services .services .services-item {
       margin-bottom: 30px; }
+      @media (max-width: 576px) {
+        #page #services .services .services-item {
+          width: 50%;
+          margin-bottom: 15px; } }
       @media (max-width: 480px) {
         #page #services .services .services-item {
           width: 100%;
           margin-bottom: 15px; } }
       #page #services .services .services-item .border {
-        border: 20px solid #fff;
+        border: 20px solid #fff !important;
         background: #fff;
         height: 100%;
         padding-bottom: 15px; }
         @media (max-width: 992px) {
           #page #services .services .services-item .border {
-            border: 15px solid #fff; } }
+            border: 15px solid #fff !important; } }
         @media (max-width: 480px) {
           #page #services .services .services-item .border {
-            border: 20px solid #fff; } }
+            border: 20px solid #fff !important; } }
         #page #services .services .services-item .border .image-wrapper {
           padding-top: 19.5vh; }
           @media (max-width: 992px) {
@@ -468,6 +482,10 @@ html, body {
       display: none; }
     #page #how .instructions .how-item {
       margin-bottom: 15px; }
+      @media (max-width: 576px) {
+        #page #how .instructions .how-item {
+          width: 50%;
+          margin-bottom: 15px; } }
       @media (max-width: 480px) {
         #page #how .instructions .how-item {
           width: 100%;
@@ -494,15 +512,16 @@ html, body {
             -webkit-transform: translate(-50%, 0);
                 -ms-transform: translate(-50%, 0);
                     transform: translate(-50%, 0); } }
-      @media (min-width: 481px) and (max-width: 992px) {
+      @media (min-width: 480px) and (max-width: 992px) {
         #page #how .instructions .how-item:nth-of-type(even):after {
           display: none; } }
       #page #how .instructions .how-item .border {
         height: 100%;
-        padding-bottom: 15px; }
+        padding-bottom: 15px;
+        border: none !important; }
         @media (max-width: 480px) {
           #page #how .instructions .how-item .border {
-            border: 0 solid #fff; } }
+            border: 0 solid #fff !important; } }
       #page #how .instructions .how-item .image-wrapper {
         padding-top: 19.5vh; }
         @media (max-width: 992px) {
@@ -549,7 +568,7 @@ html, body {
     text-align: center;
     padding-bottom: 50px;
     position: relative;
-    margin: 40px 0 50px; }
+    margin: 40px 0 0; }
     @media (max-width: 480px) {
       #page #team .title {
         font-size: 32px; } }
@@ -562,8 +581,18 @@ html, body {
       right: 0;
       height: 2px;
       background: #00ab4a; }
+  #page #team .description {
+    font-family: "Poppins", sans-serif;
+    font-size: 20px;
+    line-height: 1.2;
+    padding: 30px 0 45px;
+    width: 45%;
+    margin: auto;
+    text-align: center; }
+    @media (max-width: 992px) {
+      #page #team .description {
+        width: 100%; } }
   #page #team .team {
-    padding: 0 15px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -574,6 +603,10 @@ html, body {
     @media (max-width: 480px) {
       #page #team .team {
         padding: 0; } }
+    @media (max-width: 576px) {
+      #page #team .team .team-item {
+        width: 50%;
+        margin-bottom: 15px; } }
     @media (max-width: 480px) {
       #page #team .team .team-item {
         width: 50%; } }
@@ -581,13 +614,17 @@ html, body {
       #page #team .team .team-item {
         width: 100%; } }
     #page #team .team .team-item .border {
-      padding: 15px; }
+      border: none !important; }
       @media (max-width: 992px) {
         #page #team .team .team-item .border {
           padding: 15px 0; } }
+      #page #team .team .team-item .border .team-popup {
+        display: none; }
       #page #team .team .team-item .border .limiter {
         width: 69%;
-        margin: 0 auto 30px; }
+        margin: 0 auto 30px;
+        position: relative;
+        display: block; }
         @media (max-width: 1200px) {
           #page #team .team .team-item .border .limiter {
             width: 100%; } }
@@ -595,7 +632,30 @@ html, body {
           #page #team .team .team-item .border .limiter {
             margin: 0 auto 15px; } }
         #page #team .team .team-item .border .limiter .image-wrapper {
-          padding-top: 100%; }
+          padding-top: 100%;
+          border-radius: 50%;
+          overflow: hidden;
+          -webkit-filter: grayscale(100%);
+                  filter: grayscale(100%);
+          display: block; }
+        #page #team .team .team-item .border .limiter .fas {
+          cursor: pointer;
+          position: absolute;
+          bottom: 15px;
+          right: 10px;
+          width: 40px;
+          height: 40px;
+          background: #fff;
+          border-radius: 50%;
+          overflow: hidden; }
+          #page #team .team .team-item .border .limiter .fas:before {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+                -ms-transform: translate(-50%, -50%);
+                    transform: translate(-50%, -50%);
+            color: #000; }
       #page #team .team .team-item .border .team-tite {
         font-size: 20px;
         font-family: "Poppins", sans-serif;
@@ -649,9 +709,9 @@ html, body {
             align-items: center; }
     @media (max-width: 768px) {
       #page #awards .awards {
-        -webkit-box-align: normal;
-            -ms-flex-align: normal;
-                align-items: normal; } }
+        -webkit-box-align: inherit;
+            -ms-flex-align: inherit;
+                align-items: inherit; } }
     #page #awards .awards:after, #page #awards .awards:before {
       display: none; }
     #page #awards .awards .awards-item {
@@ -661,6 +721,9 @@ html, body {
           padding: 30px 15px; } }
       #page #awards .awards .awards-item:nth-of-type(odd) {
         border-right: 1px solid #fff; }
+        @media (max-width: 768px) {
+          #page #awards .awards .awards-item:nth-of-type(odd) {
+            border-right: none; } }
       #page #awards .awards .awards-item .awards-tite {
         font-size: 12px;
         font-family: "Open Sans", sans-serif;
@@ -705,6 +768,12 @@ html, body {
         height: auto; }
       #page #awards .awards .part:last-of-type {
         text-align: left; }
+        @media (max-width: 768px) {
+          #page #awards .awards .part:last-of-type {
+            -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                    justify-content: center;
+            text-align: center; } }
 
 #page #contacts {
   min-height: 100vh;
@@ -916,3 +985,81 @@ html, body {
 
 #html5-watermark {
   display: none !important; }
+
+.popup-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-width: 600px; }
+  @media (max-width: 768px) {
+    .popup-wrapper {
+      max-width: 450px;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; } }
+  .popup-wrapper:before, .popup-wrapper:after {
+    display: none; }
+  .popup-wrapper .popup-image {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+    min-height: 50vh; }
+    @media (max-width: 768px) {
+      .popup-wrapper .popup-image {
+        min-height: 420px; } }
+    @media (max-width: 480px) {
+      .popup-wrapper .popup-image {
+        min-height: initial;
+        padding-top: 80%; } }
+  .popup-wrapper .popup-info {
+    padding: 15px;
+    text-align: left; }
+    @media (max-width: 480px) {
+      .popup-wrapper .popup-info {
+        padding: 15px 0; } }
+    .popup-wrapper .popup-info h2 {
+      font-size: 22px;
+      font-family: 'Poppins', sans-serif;
+      text-align: left;
+      font-weight: 600;
+      color: #00ab4a; }
+    .popup-wrapper .popup-info h3 {
+      font-size: 18px;
+      font-family: 'Poppins', sans-serif;
+      text-align: left;
+      font-weight: 600;
+      margin-bottom: 10px; }
+    .popup-wrapper .popup-info .popup-description {
+      font-family: "Open Sans", sans-serif;
+      font-size: 16px; }
+      @media (max-width: 480px) {
+        .popup-wrapper .popup-info .popup-description {
+          font-size: 14px; } }
+  .popup-wrapper .popup-contacts {
+    padding: 15px;
+    background: #000;
+    margin: 0 -15px;
+    text-align: left; }
+    .popup-wrapper .popup-contacts a {
+      font-family: 'Poppins', sans-serif;
+      margin-bottom: 5px;
+      display: block;
+      color: #fff; }
+      .popup-wrapper .popup-contacts a i {
+        margin-right: 10px; }
+
+.blog .tab-pane a {
+  display: block; }

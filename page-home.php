@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-	<section id="main" style="background: url(<?php the_field( "bg-pattern" ); ?>) bottom right/contain no-repeat, url(<?php the_field( "background" ); ?>) center/cover no-repeat fixed; ">
+	<section id="main" style="background: url(<?php the_field( "bg-pattern" ); ?>) bottom right/contain no-repeat, linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0.23) 100%), url(<?php the_field( "background" ); ?>) center/cover no-repeat fixed; ">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
@@ -23,7 +23,7 @@
 					</header>
 
 					<div class="hero row">
-						<div class="col-xs-12 col-sm-8 col-md-5">
+						<div class="col-sm-12 col-md-8 col-lg-6 hero-text">
 							<h1 class="title"><?php bloginfo( 'name' ); ?></h1>
 							<p class="description"><?php echo get_bloginfo( 'description', 'display' ); ?></p>
 							<p class="content"><?php $content = apply_filters('the_content', get_post(17)->post_content);
@@ -44,11 +44,11 @@
 	</section>
 
 	<section id="about">
-		<div class="bg" style="background: url(<?php the_field( "about_pattern" ); ?>) bottom left/contain no-repeat, url(<?php the_field( "background_about" ); ?>) center/cover no-repeat fixed; ">
+		<div class="bg" style="background: url(<?php the_field( "about_pattern" ); ?>) bottom left/contain no-repeat, linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0.23) 100%), url(<?php the_field( "background_about" ); ?>) center/cover no-repeat fixed; ">
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-12 col-md-6 col-xs-offset-0 col-md-offset-6 about-content">
+				<div class="col-xs-12 col-md-12 offset-xs-0 offset-lg-6 about-content">
 					<h1 class="title"><?php the_field( "about_title" ); ?></h1>
 					<p class="description"><?php the_field( "about_description" ); ?></p>
 					<div class="image-wrapper">
@@ -77,7 +77,7 @@
 								while($post_query->have_posts() ) {
 									$post_query->the_post();
 						?>
-								<div class="col-xs-6 col-md-4 services-item">
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 services-item">
 									<div class="border">
 										<div class="image-wrapper" style="background: url(<?php the_post_thumbnail_url( ); ?>) center/cover no-repeat">
 
@@ -114,7 +114,7 @@
 							while($post_query->have_posts() ) {
 								$post_query->the_post();
 								?>
-								<div class="col-xs-6 col-md-4 how-item">
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-4 how-item">
 									<div class="border">
 										<div class="image-wrapper" style="background: url(<?php the_post_thumbnail_url( ); ?>) center/auto no-repeat">
 
@@ -141,6 +141,7 @@
 			<div class="row">
 				<div class="col-md-12 team-content">
 					<h1 class="title"><?php the_field( "team_title" ); ?></h1>
+					<p class="description"><?php the_field( "team_description" ); ?></p>
 					<div class="team row">
 						<?php
 						$args = array(
@@ -150,16 +151,40 @@
 						if($post_query->have_posts() ) {
 							while($post_query->have_posts() ) {
 								$post_query->the_post();
+								$index = $post_query->current_post + 1;
 								?>
-								<div class="col-xs-4 col-md-3 team-item">
+								<div class="col-sm-6 col-md-4 col-lg-3 team-item">
 									<div class="border">
 										<div class="limiter">
-											<div class="image-wrapper" style="background: url(<?php the_post_thumbnail_url( ); ?>) center/cover no-repeat">
+											<a href="#member<?php echo $index; ?>" class="image-wrapper html5lightbox" style="background: url(<?php the_post_thumbnail_url( ); ?>) center/cover no-repeat">
+											</a>
 
+											<i class="fas fa-lg fa-long-arrow-alt-right" onclick="event.target.previousElementSibling.click()"></i>
+
+											<div id="member<?php echo $index; ?>" class="team-popup">
+												<div class="popup-wrapper">
+													<div class="popup-image col-sm-12  col-md-5 col-12"
+															 style="background: url(<?php the_post_thumbnail_url(); ?>) center/cover no-repeat">
+														<div class="popup-contacts">
+															<?php if (get_field("email")) { ?>
+																<a href="mailto:<?php the_field("email") ?>"><i class="fas fa-envelope"></i><?php the_field("email") ?></a>
+															<?php } ?>
+															<?php if (get_field("phone")) { ?>
+																<a href="tel:<?php the_field("phone") ?>"><i class="fas fa-phone-alt"></i><?php the_field("phone") ?></a>
+															<?php } ?>
+														</div>
+													</div>
+													<div class="popup-info col-sm-12 col-md-7 col-12">
+														<h2 class="popup-name"><?php the_title(); ?></h2>
+														<h3 class="popup-position"><?php the_field("position"); ?></h3>
+														<p class="popup-description"><?php remove_filter('the_content', 'wpautop');
+															the_content(); ?></p>
+													</div>
+												</div>
 											</div>
 										</div>
 										<h2 class="team-tite"><?php the_title(); ?></h2>
-										<p class="team-description"><?php remove_filter ('the_content', 'wpautop'); the_content(); ?></p>
+										<p class="team-description"><?php the_field( "position" ); ?></p>
 									</div>
 								</div>
 

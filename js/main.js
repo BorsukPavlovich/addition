@@ -5,7 +5,7 @@ function ready() {
       toggle = document.querySelector('.toggle');
 
   function scroll(e) {
-    if (e.target.tagName == 'A' && !e.target.hasAttribute('title')) {
+    if (e.target.tagName == 'A' && !e.target.hasAttribute('title') && ~e.target.href.indexOf('#')) {
       console.log(111);
       e.preventDefault();
       console.log(e.target.getAttribute('href'));
@@ -16,17 +16,23 @@ function ready() {
     }
   }
 
-  elem.onclick = function(e) {
-    scroll(e);
-  };
+  if (elem) {
+    elem.onclick = function(e) {
+      scroll(e);
+    };
+  }
 
-  top.onclick = function(e) {
-    scroll(e);
-  };
+  if (top) {
+    top.onclick = function(e) {
+      scroll(e);
+    };
+  }
 
-  link.onclick = function(e) {
-    scroll(e);
-  };
+  if (link) {
+    link.onclick = function(e) {
+      scroll(e);
+    };
+  }
 
   toggle.onclick = function(e) {
     document.body.classList.toggle('open');

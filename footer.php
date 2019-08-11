@@ -11,11 +11,9 @@
 
 ?>
 
-	</div><!-- #content -->
-
 	<footer id="colophon" class="site-footer">
-		<p><?php the_field('copyright'); ?></p>
-		<a href="#main" class="footer-logo" style="background-image: url(<?php the_field('footer_logo'); ?>)"></a>
+		<p><?php echo get_option('copyright'); ?></p>
+		<a href="#main" class="footer-logo" style="background-image: url(<?php echo get_option('footer_logo'); ?>)"></a>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 

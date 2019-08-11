@@ -132,6 +132,8 @@ function addition_scripts() {
 
 	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/lib/html5lightbox/jquery.js' );
 
+	wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/lib/bootstrap.min.js' );
+
 	wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/lib/html5lightbox/html5lightbox.js' );
 
 	wp_enqueue_script( 'main', get_template_directory_uri() . '/js/main.js' );
@@ -281,5 +283,35 @@ require get_template_directory() . '/inc/customizer.php';
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
+}
+
+//Custom Theme Settings
+add_action('admin_menu', 'add_gcf_interface');
+
+function add_gcf_interface() {
+	add_options_page('Global Custom Fields', 'Global Custom Fields', '8', 'functions', 'editglobalcustomfields');
+}
+
+function editglobalcustomfields() {
+	?>
+	<div class='wrap'>
+		<h2>Global Fields</h2>
+		<form method="post" action="options.php">
+			<?php wp_nonce_field('update-options') ?>
+
+			<p><strong>Footer logo</strong><br />
+				<input type="text" name="footer_logo" size="45" value="<?php echo get_option('footer_logo'); ?>" placeholder="<?php echo get_option('footer_logo'); ?>" /></p>
+
+			<p><strong>Copyright:</strong><br />
+				<input type="text" name="copyright" size="45" value="<?php echo get_option('copyright'); ?>" placeholder="<?php echo get_option('copyright'); ?>"/></p>
+
+			<p><input type="submit" name="Submit" value="Update Options" /></p>
+
+			<input type="hidden" name="action" value="update" />
+			<input type="hidden" name="page_options" value="footer_logo,copyright" />
+
+		</form>
+	</div>
+	<?php
 }
 
