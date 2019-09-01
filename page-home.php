@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-	<section id="main" style="background: url(<?php the_field( "bg-pattern" ); ?>) bottom right/contain no-repeat, linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0.23) 100%), url(<?php the_field( "background" ); ?>) center/cover no-repeat fixed; ">
+	<section id="main" style="background: url(<?php echo get_option('hero_pattern'); ?>) bottom right/contain no-repeat, linear-gradient(to top, rgba(0,0,0,0.5) 0%, rgba(255,255,255,0.23) 100%), url(<?php echo get_option('hero_image'); ?>) center/cover no-repeat fixed; " class="home">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">

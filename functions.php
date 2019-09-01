@@ -299,6 +299,12 @@ function editglobalcustomfields() {
 		<form method="post" action="options.php">
 			<?php wp_nonce_field('update-options') ?>
 
+			<p><strong>Hero image</strong><br />
+				<input type="text" name="hero_image" size="45" value="<?php echo get_option('hero_image'); ?>" placeholder="<?php echo get_option('hero_image'); ?>" />
+
+			</p><p><strong>Hero pattern</strong><br />
+				<input type="text" name="hero_pattern" size="45" value="<?php echo get_option('hero_pattern'); ?>" placeholder="<?php echo get_option('hero_pattern'); ?>" /></p>
+
 			<p><strong>Footer logo</strong><br />
 				<input type="text" name="footer_logo" size="45" value="<?php echo get_option('footer_logo'); ?>" placeholder="<?php echo get_option('footer_logo'); ?>" /></p>
 
@@ -308,10 +314,23 @@ function editglobalcustomfields() {
 			<p><input type="submit" name="Submit" value="Update Options" /></p>
 
 			<input type="hidden" name="action" value="update" />
-			<input type="hidden" name="page_options" value="footer_logo,copyright" />
+			<input type="hidden" name="page_options" value="footer_logo,copyright,hero_image,hero_pattern" />
 
 		</form>
 	</div>
 	<?php
 }
+
+
+function my_theme_archive_title( $title ) {
+	if ( is_month() ) {
+		/* translators: Monthly archive title. %s: Month name and year */
+		$title = sprintf(__('Month: %s'),__(get_the_date('F')).' '.__(get_the_date('Y')));
+	}
+
+	return $title;
+}
+
+add_filter( 'get_the_archive_title', 'my_theme_archive_title' );
+
 
