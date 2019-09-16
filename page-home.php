@@ -48,7 +48,7 @@
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-12 col-md-12 offset-xs-0 offset-lg-6 about-content">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 offset-xs-0 offset-lg-6 about-content">
 					<h1 class="title"><?php the_field( "about_title" ); ?></h1>
 					<p class="description"><?php the_field( "about_description" ); ?></p>
 					<div class="image-wrapper">

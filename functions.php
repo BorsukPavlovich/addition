@@ -136,6 +136,8 @@ function addition_scripts() {
 
 	wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/lib/html5lightbox/html5lightbox.js' );
 
+	wp_enqueue_script( 'smoothscroll', get_template_directory_uri() . '/js/smoothscroll.js' );
+
 	wp_enqueue_script( 'main', get_template_directory_uri() . '/js/main.js' );
 
 	wp_enqueue_script( 'addition-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
